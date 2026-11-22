@@ -1,0 +1,30 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: bank-reconciliation-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment_gateway
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+jwt:
+  secret: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+  expiration-time: 3600000
+
+stripe:
+  api:
+    key: sk_test_51PgOntCBvhIwNn1KLeSJHvVsoITYMB0XFRX6VOhvN9AF1l6rSapkUvJJ8OMYmYkAvXho2WNZuWrbmGl6a16xYFjX00Usvrkkby #sk_test_51PYgn7RvpDLCTJ2LrFNta4dQLcPYUWLiXRE5LB81MeT3KJ1QjksQ0VzydPUtiU5vsgRGujRfUVyTsN0YHdPovpz900rVtVCzsh
+    base-url: https://api.stripe.com
+  webhook:
+    secret: whsec_JLF9TnYBBC5CDhORMcP2O0EP80RbzDsA

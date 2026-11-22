@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment_gateway
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: account-service
+
+jwt:
+  secret: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+  expiration-time: 3600000
+
+logging:
+  level:
+    com.electric_titans.accountservice: DEBUG # Set to warn for production
